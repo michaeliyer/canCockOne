@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>CanCockOne</title>
+    <link href="style.css" rel="stylesheet" type="text/css" />
+  </head>
+  <body>
+    <header>
+      <h1>CanCockOne</h1>
+      <p class="subhead">Track inventory, orders, and customers</p>
+    </header>
+
+    <main>
+      <section id="customersSection">
+        <h2>Customers</h2>
+        <form id="customerForm" class="form-container">
+          <h3>Add New Customer</h3>
+          <div class="form-group">
+            <label for="name">Name *</label>
+            <input type="text" id="name" name="name" required />
+          </div>
+          <div class="form-group">
+            <label for="email">Email</label>
+            <input type="email" id="email" name="email" />
+          </div>
+          <div class="form-group">
+            <label for="phone">Phone</label>
+            <input type="tel" id="phone" name="phone" />
+          </div>
+          <div class="form-group">
+            <label for="notes">Notes</label>
+            <textarea id="notes" name="notes"></textarea>
+          </div>
+          <button type="submit">Add Customer</button>
+        </form>
+        <div id="customers" class="table-container"></div>
+      </section>
+
+      <section id="productsSection">
+        <h2>Products</h2>
+        <div id="products"></div>
+      </section>
+
+      <!-- Order Form First -->
+      <section id="orderFormSection">
+        <h2>Add New Order</h2>
+        <form id="orderForm">
+          <label>
+            Customer:
+            <select id="orderCustomerSelect" required>
+              <option value="">Select Customer</option>
+            </select>
+          </label>
+          <label>
+            Product Variant:
+            <select id="orderVariantSelect" required>
+              <option value="">Select Variant</option>
+            </select>
+          </label>
+          <label>
+            Quantity:
+            <input type="number" id="orderQuantity" min="1" required />
+          </label>
+          <button type="submit">Submit Order</button>
+        </form>
+      </section>
+
+      <!-- Then Order List -->
+      <section id="ordersSection">
+        <h2>Orders</h2>
+        <div id="orders"></div>
+      </section>
+    </main>
+
+    <footer>
+      <p>© 2025 CanCockOne</p>
+    </footer>
+
+    <!-- Load your modular script setup -->
+    <script type="module" src="./modules/script.js"></script>
+  </body>
+</html>
