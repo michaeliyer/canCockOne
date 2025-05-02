@@ -15,11 +15,14 @@ export const createTables = async (db) => {
   // Create products table
   await db.exec(`
     CREATE TABLE IF NOT EXISTS products (
-      id INTEGER PRIMARY KEY AUTOINCREMENT,
+      product_id INTEGER PRIMARY KEY AUTOINCREMENT,
       name TEXT NOT NULL,
       description TEXT,
-      price DECIMAL(10,2) NOT NULL,
-      created_at DATETIME DEFAULT CURRENT_TIMESTAMP
+      base_price DECIMAL(10,2) NOT NULL,
+      sku TEXT NOT NULL UNIQUE,
+      category TEXT,
+      created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
+      updated_at DATETIME DEFAULT CURRENT_TIMESTAMP
     )
   `);
 
@@ -31,7 +34,7 @@ export const createTables = async (db) => {
       name TEXT NOT NULL,
       price DECIMAL(10,2) NOT NULL,
       created_at DATETIME DEFAULT CURRENT_TIMESTAMP,
-      FOREIGN KEY (product_id) REFERENCES products(id)
+      FOREIGN KEY (product_id) REFERENCES products(product_id)
     )
   `);
 
